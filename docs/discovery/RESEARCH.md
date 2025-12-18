@@ -1,4 +1,5 @@
 # Discovery Research
+
 ## Job Club - AI Career Accelerator
 
 This document will contain:
@@ -13,12 +14,15 @@ This document will contain:
 ## Personas
 
 ### Persona 1: AI-Curious Freshman
+
 *To be completed*
 
 ### Persona 2: Career-Switching Senior
+
 *To be completed*
 
 ### Persona 3: Entrepreneurial Student Building a Startup
+
 *To be completed*
 
 ---
@@ -42,6 +46,7 @@ Example: Student wants to join Job Club → becomes career-ready
 *To be completed*
 
 Examples to analyze:
+
 - Replit community
 - Major League Hacking
 - University career centers

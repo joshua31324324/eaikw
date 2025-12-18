@@ -1,6 +1,9 @@
 # Job Club - Project Brief
+
 ## S373 – Project Brief
+
 ### Job Club – AI Career Accelerator
+
 #### Two-Week Production Sprint
 
 ---
@@ -193,12 +196,14 @@ All 3 Job Club pages (home, onboarding, events) must use the EAiKW style and lay
 You must implement and connect:
 
 **Schemas:**
+
 - `memberProfile`
 - `event`
 - `resource`
 - `author` (for resource documents)
 
 **CMS Features:**
+
 - Draft → review → publish workflow
 - Webhook or API integration
 - Ability to list content on the site dynamically
@@ -211,6 +216,7 @@ Your team must build at least two automations using Zapier or Make.
 **Required Automation:**
 
 Onboarding Form → CRM + Personalized Email
+
 - Sends personalized onboarding checklist
 - Creates/updates CRM entry
 - Posts intro to Discord
@@ -280,6 +286,7 @@ Teams must evaluate at least two analytics options:
 - Umami
 
 Deliver:
+
 - `docs/analytics-evaluation.md`
 
 Implement one analytics tool with:
