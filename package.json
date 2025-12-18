@@ -15,11 +15,7 @@
     "concurrently": "^8.2.2",
     "tailwindcss": "^3.4.1"
   },
-<<<<<<< HEAD
-  "dependencies": {
-    "@sanity/client": "^6.15.10"
-  }
-=======
+  
   "description": "> A lightning-fast, production-ready portfolio built with modern web\r > technologies and achieving **perfect 100% Lighthouse scores** across all\r > categories.",
   "main": ".eleventy.js",
   "directories": {
@@ -708,5 +704,4 @@
     "url": "https://github.com/joshua31324324/eaikw/issues"
   },
   "homepage": "https://github.com/joshua31324324/eaikw#readme"
->>>>>>> 6910fe0364c7f57b863cde999ab63e4e8bb8ff37
 }
