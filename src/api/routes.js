@@ -1,7 +1,7 @@
 /**
  * API Routes for Job Club
  * Handles form submissions, event registration, etc.
- * 
+ *
  * These can be deployed as:
  * - Netlify Functions (functions/ directory)
  * - Vercel Functions
@@ -9,10 +9,10 @@
  * - Lambda functions
  */
 
-import SanityClient from '@sanity/client';
-import NotionDBIntegration from '../lib/notionIntegration.js';
-import DiscordIntegration from '../lib/discordIntegration.js';
-import ChecklistGenerator from '../lib/checklistGenerator.js';
+import SanityClient from "@sanity/client";
+import NotionDBIntegration from "../lib/notionIntegration.js";
+import DiscordIntegration from "../lib/discordIntegration.js";
+import ChecklistGenerator from "../lib/checklistGenerator.js";
 
 const sanity = new SanityClient({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -30,32 +30,35 @@ const discord = new DiscordIntegration();
  * Triggers personalized checklist and automation workflows
  */
 export async function handleOnboarding(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
     const formData = req.body;
 
+    // Normalize incoming form keys (snake_case -> camelCase)
+    const data = normalizeOnboardingData(formData);
+
     // Validate required fields
-    const errors = validateOnboardingForm(formData);
+    const errors = validateOnboardingForm(data);
     if (errors.length > 0) {
       return res.status(400).json({ errors });
     }
 
     // Create member profile in Sanity
     const memberProfile = await sanity.create({
-      _type: 'memberProfile',
-      name: formData.name,
-      email: formData.email,
-      major: formData.major,
-      graduationYear: parseInt(formData.graduationYear),
-      careerGoal: formData.careerGoal,
-      linkedinUrl: formData.linkedinUrl || null,
-      githubUrl: formData.githubUrl || null,
-      portfolioUrl: formData.portfolioUrl || null,
-      calendlyUrl: formData.calendlyUrl || null,
-      onboardingStatus: 'new',
+      _type: "memberProfile",
+      name: data.name,
+      email: data.email,
+      major: data.major,
+      graduationYear: parseInt(data.graduationYear),
+      careerGoal: data.careerGoal,
+      linkedinUrl: data.linkedinUrl || null,
+      githubUrl: data.githubUrl || null,
+      portfolioUrl: data.portfolioUrl || null,
+      calendlyUrl: data.calendlyUrl || null,
+      onboardingStatus: "new",
       joinedDate: new Date().toISOString(),
       lastUpdated: new Date().toISOString(),
     });
@@ -83,14 +86,14 @@ export async function handleOnboarding(req, res) {
         completionEstimate: analysis.completionEstimate,
         majorSpecificTasks: analysis.checklist,
       }).catch((error) => {
-        console.error('Zapier webhook error (non-blocking):', error);
+        console.error("Zapier webhook error (non-blocking):", error);
         // Don't fail the response - the member was created successfully
       });
     }
 
     return res.status(201).json({
       success: true,
-      message: 'Welcome to Job Club! Check your email for next steps.',
+      message: "Welcome to Job Club! Check your email for next steps.",
       memberId: memberProfile._id,
       personalizationData: {
         missingAssetsCount: analysis.missingAssets.length,
@@ -98,9 +101,9 @@ export async function handleOnboarding(req, res) {
       },
     });
   } catch (error) {
-    console.error('Onboarding error:', error);
+    console.error("Onboarding error:", error);
     return res.status(500).json({
-      error: 'Failed to process onboarding',
+      error: "Failed to process onboarding",
       details: error.message,
     });
   }
@@ -132,9 +135,9 @@ export async function handleGetEvents(req, res) {
 
     return res.status(200).json(events);
   } catch (error) {
-    console.error('Error fetching events:', error);
+    console.error("Error fetching events:", error);
     return res.status(500).json({
-      error: 'Failed to fetch events',
+      error: "Failed to fetch events",
       details: error.message,
     });
   }
@@ -152,15 +155,16 @@ export async function handleGetResources(req, res) {
     if (category) {
       query += `[category == "${category}"]`;
     }
-    query += ' | order(publishedAt desc) { _id, title, slug, description, category, difficulty, timeToRead, publishedAt }';
+    query +=
+      " | order(publishedAt desc) { _id, title, slug, description, category, difficulty, timeToRead, publishedAt }";
 
     const resources = await sanity.fetch(query);
 
     return res.status(200).json(resources);
   } catch (error) {
-    console.error('Error fetching resources:', error);
+    console.error("Error fetching resources:", error);
     return res.status(500).json({
-      error: 'Failed to fetch resources',
+      error: "Failed to fetch resources",
       details: error.message,
     });
   }
@@ -171,22 +175,24 @@ export async function handleGetResources(req, res) {
  * Register a member for an event
  */
 export async function handleEventRegistration(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
     const { memberEmail, eventId } = req.body;
 
     if (!memberEmail || !eventId) {
-      return res.status(400).json({ error: 'Missing required fields' });
+      return res.status(400).json({ error: "Missing required fields" });
     }
 
     // Find member
-    const member = await sanity.fetch(`*[_type == "memberProfile" && email == "${memberEmail}"][0]`);
+    const member = await sanity.fetch(
+      `*[_type == "memberProfile" && email == "${memberEmail}"][0]`
+    );
 
     if (!member) {
-      return res.status(404).json({ error: 'Member not found' });
+      return res.status(404).json({ error: "Member not found" });
     }
 
     // Update member's registered events (if storing registrations)
@@ -195,12 +201,12 @@ export async function handleEventRegistration(req, res) {
 
     return res.status(200).json({
       success: true,
-      message: 'Successfully registered for event',
+      message: "Successfully registered for event",
     });
   } catch (error) {
-    console.error('Event registration error:', error);
+    console.error("Event registration error:", error);
     return res.status(500).json({
-      error: 'Failed to register for event',
+      error: "Failed to register for event",
       details: error.message,
     });
   }
@@ -212,27 +218,46 @@ export async function handleEventRegistration(req, res) {
 function validateOnboardingForm(data) {
   const errors = [];
 
-  if (!data.name || data.name.trim() === '') {
-    errors.push('Name is required');
+  if (!data.name || data.name.trim() === "") {
+    errors.push("Name is required");
   }
 
   if (!data.email || !isValidEmail(data.email)) {
-    errors.push('Valid email is required');
+    errors.push("Valid email is required");
   }
 
-  if (!data.major || data.major.trim() === '') {
-    errors.push('Major is required');
+  if (!data.major || data.major.trim() === "") {
+    errors.push("Major is required");
   }
 
   if (!data.graduationYear || isNaN(parseInt(data.graduationYear))) {
-    errors.push('Valid graduation year is required');
+    errors.push("Valid graduation year is required");
   }
 
   if (!data.careerGoal) {
-    errors.push('Career goal is required');
+    errors.push("Career goal is required");
   }
 
   return errors;
+}
+
+/**
+ * Normalize onboarding form keys from snake_case to camelCase expected by the API
+ */
+function normalizeOnboardingData(formData) {
+  const mapKey = (obj, snake, camel) => obj[camel] ?? obj[snake];
+
+  return {
+    name: (formData.name || "").trim(),
+    email: (formData.email || "").trim(),
+    major: (formData.major || "").trim(),
+    graduationYear: mapKey(formData, "graduation_year", "graduationYear"),
+    careerGoal: mapKey(formData, "career_goal", "careerGoal"),
+    linkedinUrl: mapKey(formData, "linkedin_url", "linkedinUrl") || null,
+    githubUrl: mapKey(formData, "github_url", "githubUrl") || null,
+    portfolioUrl: mapKey(formData, "portfolio_url", "portfolioUrl") || null,
+    calendlyUrl: mapKey(formData, "calendly_url", "calendlyUrl") || null,
+  };
 }
 
 /**
@@ -251,9 +276,9 @@ function isValidEmail(email) {
 async function triggerZapierAutomation(webhookUrl, data) {
   try {
     const response = await fetch(webhookUrl, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         timestamp: new Date().toISOString(),
@@ -266,10 +291,10 @@ async function triggerZapierAutomation(webhookUrl, data) {
       throw new Error(`Zapier webhook failed: ${response.status} ${errorText}`);
     }
 
-    console.log('Zapier automation triggered successfully');
+    console.log("Zapier automation triggered successfully");
     return await response.json();
   } catch (error) {
-    console.error('Error triggering Zapier automation:', error);
+    console.error("Error triggering Zapier automation:", error);
     throw error;
   }
 }

@@ -7,7 +7,7 @@
     .node-red { stroke: #e03232; fill: #ffffff; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
   </style>
   <text x="20" y="88" class="wordmark" font-size="56">JOB CLUB</text>
-  <g transform="translate(120 0)">
+  <g transform="translate(80 0)">
     <line class="node-navy" x1="250" y1="70" x2="302" y2="70" />
     <line class="node-red" x1="250" y1="70" x2="280" y2="30" />
     <line class="node-navy" x1="250" y1="70" x2="280" y2="110" />

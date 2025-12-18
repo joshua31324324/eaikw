@@ -9,47 +9,47 @@ title: Home
 <section data-component="hero" data-section="home" class="relative" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
   <div class="swiss-grid">
     <div class="swiss-col-12 md:swiss-col-7" style="padding-right: var(--space-3xl);">
-      <div style="margin-bottom: var(--space-xl); display: inline-block;">
-        <img src="{{ '/images/job-club-logo.svg' | baseUrl }}" alt="Job Club" style="height: 110px; width: auto; display: block;">
+      <div style="margin-bottom: var(--space-lg); display: inline-block;">
+        <img src="{{ '/images/job-club-logo.svg' | baseUrl }}" alt="Job Club" class="site-logo">
       </div>
-      <div style="border-left: 3px solid var(--swiss-black); padding-left: var(--space-lg); margin-bottom: var(--space-xl);">
+      <div style="border-left: 3px solid var(--swiss-black); padding-left: var(--space-lg); margin-bottom: var(--space-lg);">
         <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">Job Club</p>
       </div>
-      <h1 class="font-bold leading-none" style="font-size: var(--fluid-display); letter-spacing: -0.03em; line-height: 0.95; margin-bottom: var(--space-2xl);">
+      <h1 style="font-size: var(--fluid-display); letter-spacing: -0.03em; line-height: 0.95; margin-bottom: var(--space-2xl); font-weight: 900;">
         Turn students into career-ready AI consultants, founders, and developers.
       </h1>
-      <p class="text-lg" style="color: var(--swiss-gray-800); max-width: 640px; margin-bottom: var(--space-2xl);">
+      <p style="font-size: var(--fluid-body-lg); color: var(--swiss-gray-800); max-width: 640px; margin-bottom: var(--space-2xl);">
         Guided onboarding, mentor-backed sprints, events, and portfolio-first workflows. Start now, get a personalized checklist, and join the Discord community.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4" style="margin-bottom: var(--space-2xl);">
+      <div class="flex flex-col sm:flex-row" style="gap: var(--space-md); margin-bottom: var(--space-2xl);">
         <a href="/jobclub/onboarding/" class="btn-swiss-primary">Start Onboarding</a>
         <a href="{{ site.social.discord }}" class="btn-swiss" target="_blank" rel="noopener noreferrer">Join Discord</a>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" style="max-width: 720px;">
-        <div class="p-4 border-2" style="border-color: var(--swiss-black);">
+      <div class="grid grid-cols-1 sm:grid-cols-3" style="gap: var(--space-md); max-width: 720px;">
+        <div style="border: 2px solid var(--swiss-black); padding: var(--space-md); background: var(--swiss-white);">
           <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600);">Outcome</p>
-          <p class="font-bold">Portfolio-ready in weeks</p>
+          <p style="font-weight: 700;">Portfolio-ready in weeks</p>
         </div>
-        <div class="p-4 border-2" style="border-color: var(--swiss-black);">
+        <div style="border: 2px solid var(--swiss-black); padding: var(--space-md); background: var(--swiss-white);">
           <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600);">Support</p>
-          <p class="font-bold">Mentors, events, office hours</p>
+          <p style="font-weight: 700;">Mentors, events, office hours</p>
         </div>
-        <div class="p-4 border-2" style="border-color: var(--swiss-black);">
+        <div style="border: 2px solid var(--swiss-black); padding: var(--space-md); background: var(--swiss-white);">
           <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600);">Automation</p>
-          <p class="font-bold">CRM + Discord + checklists</p>
+          <p style="font-weight: 700;">CRM + Discord + checklists</p>
         </div>
       </div>
     </div>
 
-    <div class="swiss-col-12 md:swiss-col-5" style="padding-top: var(--space-4xl);">
-      <div class="card" style="border: 2px solid var(--swiss-black); padding: var(--space-2xl); background: var(--swiss-white);">
+    <div class="swiss-col-12 md:swiss-col-5" style="padding-top: var(--space-2xl);">
+      <div class="card">
         <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-md);">Why Join</p>
-        <ul class="space-y-3 text-lg" style="color: var(--swiss-gray-800);">
-          <li>Personalized onboarding checklist</li>
-          <li>Discord community + mentor intros</li>
-          <li>Events, workshops, and office hours</li>
-          <li>Portfolio guidance with real examples</li>
-          <li>Automation-ready workflows (CRM, Discord)</li>
+        <ul style="display: flex; flex-direction: column; gap: var(--space-sm); color: var(--swiss-gray-800);">
+          <li>✓ Personalized onboarding checklist</li>
+          <li>✓ Discord community + mentor intros</li>
+          <li>✓ Events, workshops, and office hours</li>
+          <li>✓ Portfolio guidance with real examples</li>
+          <li>✓ Automation-ready workflows (CRM, Discord)</li>
         </ul>
       </div>
     </div>
@@ -68,8 +68,8 @@ title: Home
   <div class="swiss-grid">
     <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
       <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">How Job Club Works</p>
-      <h2 class="font-black" style="font-size: var(--fluid-h2); margin-top: var(--space-md); margin-bottom: var(--space-md); letter-spacing: -0.02em;">4 steps from onboarding to hired.</h2>
-      <p class="text-lg" style="color: var(--swiss-gray-700); max-width: 720px;">Structured flow: submit once, get a personalized checklist, join Discord, and ship portfolio pieces recruiters care about.</p>
+      <h2 style="font-size: var(--fluid-h2); font-weight: 900; margin-bottom: var(--space-lg); letter-spacing: -0.02em;">4 steps from onboarding to hired.</h2>
+      <p style="font-size: var(--fluid-body-lg); color: var(--swiss-gray-700); max-width: 720px;">Structured flow: submit once, get a personalized checklist, join Discord, and ship portfolio pieces recruiters care about.</p>
     </div>
     <div class="swiss-col-12">
       {{ ui.stepGrid(steps, 4) }}

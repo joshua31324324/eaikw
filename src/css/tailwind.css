@@ -17,15 +17,30 @@
   --swiss-red-dark: #b81c00;
   --swiss-gray-500: #757575;
   --swiss-gray-600: #616161;
+  --swiss-gray-400: #9e9e9e;
+  --swiss-gray-300: #e0e0e0;
+  --swiss-gray-100: #f5f5f5;
 
   /* Spacing & Layout */
   --swiss-grid-gutter: 2rem;
   --swiss-grid-margin: 2rem;
-  --space-3xl: 2rem;
-  --space-4xl: 3rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3rem;
+  --space-4xl: 4rem;
+  --space-5xl: 6rem;
 
-  /* Typography */
+  /* Typography Scale */
+  --fluid-display: clamp(2rem, 8vw, 4rem);
+  --fluid-h1: clamp(1.75rem, 6vw, 3rem);
+  --fluid-h2: clamp(1.5rem, 5vw, 2.25rem);
+  --fluid-h3: clamp(1.25rem, 4vw, 1.75rem);
   --fluid-body: 1rem;
+  --fluid-body-lg: 1.125rem;
+  --fluid-body-sm: 0.875rem;
 }
 
 /* Component Layer - Reusable UI Patterns */
@@ -176,6 +191,76 @@
   .btn-swiss-accent:focus-visible {
     outline: 2px solid var(--swiss-red);
     outline-offset: 2px;
+  }
+
+  /* Form Elements - Unified Styling */
+  .input {
+    @apply w-full px-4 py-3 text-base font-normal border-2 rounded transition-all duration-200;
+    border-color: var(--swiss-gray-300);
+    background-color: var(--swiss-white);
+    color: var(--swiss-black);
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: var(--swiss-black);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .input::placeholder {
+    color: var(--swiss-gray-600);
+  }
+
+  /* Label and Legend Consistency */
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: var(--fluid-body-sm);
+    margin-bottom: var(--space-sm);
+    color: var(--swiss-black);
+  }
+
+  legend {
+    font-size: var(--fluid-h3);
+    font-weight: 700;
+    color: var(--swiss-black);
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Link Styling */
+  a {
+    color: var(--swiss-black);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--swiss-red);
+  }
+
+  /* Navigation Links - No Underline by Default */
+  nav a,
+  [data-component="footer"] a {
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  [data-component="footer"] a:hover {
+    color: var(--swiss-red);
+  }
+
+  /* Card Styling */
+  .card {
+    background-color: var(--swiss-white);
+    border: 2px solid var(--swiss-black);
+    padding: var(--space-2xl);
+    transition: all 0.2s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
 
   /* Button Base - WCAG compliant 44x44px minimum touch target */

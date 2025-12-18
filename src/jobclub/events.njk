@@ -6,12 +6,12 @@ description: Attend Job Club events, workshops, and networking sessions led by i
 
 {% import "components/ui.njk" as ui %}
 
-<div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-5xl mx-auto">
+<div style="min-height: 100vh; background: var(--swiss-white); padding-top: var(--space-4xl); padding-bottom: var(--space-4xl); padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin);">
+  <div style="max-width: 80ch; margin: 0 auto;">
     <!-- Header -->
-    <div class="mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Job Club Events</h1>
-      <p class="text-xl text-gray-700">Connect with peers, learn from mentors, and build your professional network through our workshops, office hours, and networking events.</p>
+    <div style="margin-bottom: var(--space-3xl);">
+      <h1 style="font-size: var(--fluid-h1); font-weight: 900; color: var(--swiss-black); margin-bottom: var(--space-md);">Job Club Events</h1>
+      <p style="font-size: var(--fluid-body-lg); color: var(--swiss-gray-700);">Connect with peers, learn from mentors, and build your professional network through our workshops, office hours, and networking events.</p>
     </div>
 
     <!-- Events Grid (data-driven) -->
@@ -28,24 +28,24 @@ description: Attend Job Club events, workshops, and networking sessions led by i
     </div>
 
     <!-- Event Types Legend -->
-    <section class="panel">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">Event Types</h2>
-      <div class="grid md:grid-cols-2 gap-8">
+    <section class="card">
+      <h2 style="font-size: var(--fluid-h2); font-weight: 900; color: var(--swiss-black); margin-bottom: var(--space-2xl);">Event Types</h2>
+      <div class="grid md:grid-cols-2" style="gap: var(--space-2xl);">
         <div>
-          <h3 class="font-bold text-accent mb-2">🎓 Workshops</h3>
-          <p class="text-gray-700">Learn specific skills from mentors and professionals. Topics include portfolio building, resume writing, interview prep, and technical AI skills.</p>
+          <h3 style="font-weight: 900; font-size: var(--fluid-h3); color: var(--swiss-black); margin-bottom: var(--space-md);">🎓 Workshops</h3>
+          <p style="color: var(--swiss-gray-700);">Learn specific skills from mentors and professionals. Topics include portfolio building, resume writing, interview prep, and technical AI skills.</p>
         </div>
         <div>
-          <h3 class="font-bold text-accent mb-2">👥 Office Hours</h3>
-          <p class="text-gray-700">One-on-one mentoring sessions. Get personalized guidance on your career path, review your materials, or ask about specific roles and companies.</p>
+          <h3 style="font-weight: 900; font-size: var(--fluid-h3); color: var(--swiss-black); margin-bottom: var(--space-md);">👥 Office Hours</h3>
+          <p style="color: var(--swiss-gray-700);">One-on-one mentoring sessions. Get personalized guidance on your career path, review your materials, or ask about specific roles and companies.</p>
         </div>
         <div>
-          <h3 class="font-bold text-accent mb-2">🤝 Networking</h3>
-          <p class="text-gray-700">Meet professionals from AI companies, startups, and tech firms. Learn about company cultures, hiring processes, and real career paths in AI.</p>
+          <h3 style="font-weight: 900; font-size: var(--fluid-h3); color: var(--swiss-black); margin-bottom: var(--space-md);">🤝 Networking</h3>
+          <p style="color: var(--swiss-gray-700);">Meet professionals from AI companies, startups, and tech firms. Learn about company cultures, hiring processes, and real career paths in AI.</p>
         </div>
         <div>
-          <h3 class="font-bold text-accent mb-2">💻 Hack Nights</h3>
-          <p class="text-gray-700">Collaborate on real AI projects. Build portfolio pieces, learn from peers, and create work that impresses recruiters and employers.</p>
+          <h3 style="font-weight: 900; font-size: var(--fluid-h3); color: var(--swiss-black); margin-bottom: var(--space-md);">💻 Hack Nights</h3>
+          <p style="color: var(--swiss-gray-700);">Collaborate on real AI projects. Build portfolio pieces, learn from peers, and create work that impresses recruiters and employers.</p>
         </div>
       </div>
     </section>

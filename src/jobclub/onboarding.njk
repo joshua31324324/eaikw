@@ -6,12 +6,12 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
 
 {% import "components/ui.njk" as ui %}
 
-<div class="min-h-screen py-12 px-4">
-  <div class="max-w-3xl container">
+<div style="min-height: 100vh; padding-top: var(--space-4xl); padding-bottom: var(--space-4xl); background: var(--swiss-white);">
+  <div style="max-width: 60ch; margin: 0 auto; padding: 0 var(--swiss-grid-margin);">
     <!-- Header -->
-    <div class="text-center mb-12">
-      <h1 class="font-black" style="font-size:2.5rem;margin-bottom:1rem;color:var(--swiss-black);">Job Club Onboarding</h1>
-      <p class="text-lg text-gray-700">Share your info to get a personalized checklist, Discord access, and events matched to your goals. Takes ~5 minutes.</p>
+    <div style="text-align: center; margin-bottom: var(--space-3xl);">
+      <h1 style="font-size: var(--fluid-h1); font-weight: 900; margin-bottom: var(--space-lg); color: var(--swiss-black);">Job Club Onboarding</h1>
+      <p style="font-size: var(--fluid-body-lg); color: var(--swiss-gray-700);">Share your info to get a personalized checklist, Discord access, and events matched to your goals. Takes ~5 minutes.</p>
     </div>
 
     <!-- Progress / steps -->
@@ -28,12 +28,12 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
     <!-- Onboarding Form -->
     <form id="jobclub-onboarding" class="card" method="POST" action="/api/onboarding">
       <!-- Personal Information -->
-      <fieldset class="mb-8">
-        <legend class="text-xl font-bold text-gray-900 mb-6">Personal Information</legend>
+      <fieldset style="margin-bottom: var(--space-2xl);">
+        <legend style="font-size: var(--fluid-h3); font-weight: 900; color: var(--swiss-black); margin-bottom: var(--space-lg);">Personal Information</legend>
         
         <div class="grid md:grid-cols-2" style="gap: var(--space-lg);">
           <div>
-            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+            <label for="name" style="display: block; font-weight: 600; font-size: var(--fluid-body-sm); margin-bottom: var(--space-sm); color: var(--swiss-black);">
               Full Name <span style="color:var(--swiss-red)">*</span>
             </label>
             <input 
@@ -47,7 +47,7 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
           </div>
 
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+            <label for="email" style="display: block; font-weight: 600; font-size: var(--fluid-body-sm); margin-bottom: var(--space-sm); color: var(--swiss-black);">
               Email Address <span style="color:var(--swiss-red)">*</span>
             </label>
             <input 
@@ -61,7 +61,7 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
           </div>
 
           <div>
-            <label for="major" class="block text-sm font-medium text-gray-700 mb-2">
+            <label for="major" style="display: block; font-weight: 600; font-size: var(--fluid-body-sm); margin-bottom: var(--space-sm); color: var(--swiss-black);">
               Major / Field <span style="color:var(--swiss-red)">*</span>
             </label>
             <input 
@@ -75,7 +75,7 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
           </div>
 
           <div>
-            <label for="graduation_year" class="block text-sm font-medium text-gray-700 mb-2">
+            <label for="graduation_year" style="display: block; font-weight: 600; font-size: var(--fluid-body-sm); margin-bottom: var(--space-sm); color: var(--swiss-black);">
               Expected Graduation Year <span style="color:var(--swiss-red)">*</span>
             </label>
             <select 
@@ -95,11 +95,11 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
       </fieldset>
 
       <!-- Career Goals -->
-      <fieldset class="mb-8">
-        <legend class="text-xl font-bold text-gray-900 mb-6">Career Goals</legend>
+      <fieldset style="margin-bottom: var(--space-2xl);">
+        <legend style="font-size: var(--fluid-h3); font-weight: 900; color: var(--swiss-black); margin-bottom: var(--space-lg);">Career Goals</legend>
         
           <div>
-            <label for="career_goal" class="block text-sm font-medium text-gray-700 mb-2">
+            <label for="career_goal" style="display: block; font-weight: 600; font-size: var(--fluid-body-sm); margin-bottom: var(--space-sm); color: var(--swiss-black);">
               What's your primary career goal? <span style="color:var(--swiss-red)">*</span>
             </label>
             <select 
@@ -120,13 +120,13 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
       </fieldset>
 
       <!-- Professional URLs -->
-      <fieldset class="mb-8">
-        <legend class="text-xl font-bold text-gray-900 mb-6">Professional Assets</legend>
-        <p class="text-sm text-gray-600 mb-4">We'll help you build these if you don't have them yet!</p>
+      <fieldset style="margin-bottom: var(--space-2xl);">
+        <legend style="font-size: var(--fluid-h3); font-weight: 900; color: var(--swiss-black); margin-bottom: var(--space-lg);">Professional Assets</legend>
+        <p style="font-size: var(--fluid-body-sm); color: var(--swiss-gray-700); margin-bottom: var(--space-lg);">We'll help you build these if you don't have them yet!</p>
         
-        <div class="space-y-4">
+        <div style="display:flex;flex-direction:column;gap:var(--space-md);">
           <div>
-            <label for="linkedin_url" class="block text-sm font-medium text-gray-700 mb-2">
+            <label for="linkedin_url" style="display: block; font-weight: 600; font-size: var(--fluid-body-sm); margin-bottom: var(--space-sm); color: var(--swiss-black);">
               LinkedIn Profile URL
             </label>
             <input 
@@ -139,7 +139,7 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
           </div>
 
           <div>
-            <label for="github_url" class="block text-sm font-medium text-gray-700 mb-2">
+            <label for="github_url" style="display: block; font-weight: 600; font-size: var(--fluid-body-sm); margin-bottom: var(--space-sm); color: var(--swiss-black);">
               GitHub Profile URL
             </label>
             <input 
@@ -152,7 +152,7 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
           </div>
 
           <div>
-            <label for="portfolio_url" class="block text-sm font-medium text-gray-700 mb-2">
+            <label for="portfolio_url" style="display: block; font-weight: 600; font-size: var(--fluid-body-sm); margin-bottom: var(--space-sm); color: var(--swiss-black);">
               Personal Portfolio Website
             </label>
             <input 
@@ -165,7 +165,7 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
           </div>
 
           <div>
-            <label for="calendly_url" class="block text-sm font-medium text-gray-700 mb-2">
+            <label for="calendly_url" style="display: block; font-weight: 600; font-size: var(--fluid-body-sm); margin-bottom: var(--space-sm); color: var(--swiss-black);">
               Calendly Link (for scheduling meetings)
             </label>
             <input 
@@ -180,7 +180,7 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
       </fieldset>
 
       <!-- Consent -->
-      <fieldset class="mb-8">
+      <fieldset style="margin-bottom: var(--space-2xl);">
         <div style="display:flex;align-items:flex-start;gap:var(--space-md);">
           <input 
             type="checkbox" 
@@ -189,8 +189,8 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
             required
             style="margin-top:0.25rem;width:1rem;height:1rem;"
           >
-          <label for="consent" class="text-sm text-gray-700">
-            I agree to join Job Club and receive personalized guidance emails. My data will be used to build my checklist and connect me to Discord/CRM. <a href="/privacy" class="link-swiss">Read our privacy policy</a>.
+          <label for="consent" style="font-size: var(--fluid-body-sm); color: var(--swiss-gray-700);">
+            I agree to join Job Club and receive personalized guidance emails. My data will be used to build my checklist and connect me to Discord/CRM. <a href="/privacy" style="color: var(--swiss-black); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;">Read our privacy policy</a>.
           </label>
         </div>
       </fieldset>
@@ -198,21 +198,21 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
       <!-- Submit Button -->
       <button 
         type="submit" 
-        class="btn-swiss btn--block"
-        style="margin-top:1rem;margin-bottom:1rem;"
+        class="btn-swiss-primary"
+        style="width:100%;margin-top:var(--space-lg);margin-bottom:var(--space-lg);"
       >
         Complete Onboarding & Get Checklist
       </button>
 
-      <p class="text-xs text-gray-600 text-center">
-        We’ll flag missing assets (LinkedIn, GitHub, portfolio, Calendly) and email your personalized next steps.
+      <p style="font-size: var(--fluid-body-sm); color: var(--swiss-gray-700); text-align: center;">
+        We'll flag missing assets (LinkedIn, GitHub, portfolio, Calendly) and email your personalized next steps.
       </p>
     </form>
 
     <!-- What happens next -->
-    <div class="mt-12 p-6 border-2" style="border-color: var(--swiss-black);">
-      <h3 class="font-bold text-xl" style="margin-bottom: var(--space-md);">What happens next</h3>
-      <ul class="space-y-3 text-sm" style="color: var(--swiss-gray-800);">
+    <div style="margin-top:var(--space-4xl);padding:var(--space-lg);border:2px solid var(--swiss-black);">
+      <h3 style="font-weight: 900; font-size: var(--fluid-h3); color: var(--swiss-black); margin-bottom: var(--space-md);">What happens next</h3>
+      <ul style="display:flex;flex-direction:column;gap:var(--space-md);font-size: var(--fluid-body-sm);color: var(--swiss-gray-800);">
         <li>✔ You get a personalized checklist and guides.</li>
         <li>✔ Discord intro post to #jobclub-intros.</li>
         <li>✔ Events and resources matched to your goal.</li>
@@ -221,22 +221,22 @@ description: Start your Job Club onboarding journey. Complete your profile, get 
     </div>
 
     <!-- Success Message (Hidden by default) -->
-    <div id="success-message" class="hidden panel">
-      <h2 class="text-2xl font-bold text-green-900 mb-2">Welcome to Your AI Career Pipeline! 🎉</h2>
-      <p class="text-green-800 mb-4">Check your email for your personalized career readiness checklist and guided onboarding milestones.</p>
-      <p class="text-green-700">We've also added you to our mentoring community on Discord. <a href="https://discord.gg/jobclub" class="font-bold hover:underline">Join now to connect with peers on the same path</a>!</p>
+    <div id="success-message" style="display:none;padding:var(--space-lg);border:2px solid var(--swiss-black);">
+      <h2 style="font-size: var(--fluid-h2); font-weight: 900; color: var(--swiss-black); margin-bottom: var(--space-md);">Welcome to Your AI Career Pipeline! 🎉</h2>
+      <p style="font-size: var(--fluid-body); color: var(--swiss-gray-800); margin-bottom: var(--space-md);">Check your email for your personalized career readiness checklist and guided onboarding milestones.</p>
+      <p style="font-size: var(--fluid-body); color: var(--swiss-gray-800);">We've also added you to our mentoring community on Discord. <a href="https://discord.gg/jobclub" style="font-weight: 900; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;">Join now to connect with peers on the same path</a>!</p>
     </div>
 
     <!-- Help Section -->
-    <div class="mt-12 panel">
-      <h3 class="text-lg font-bold text-gray-900 mb-4">Need Help?</h3>
-      <p class="text-gray-700 mb-4">
+    <div style="margin-top:var(--space-4xl);padding:var(--space-lg);border:2px solid var(--swiss-black);">
+      <h3 style="font-size: var(--fluid-h3); font-weight: 900; color: var(--swiss-black); margin-bottom: var(--space-md);">Need Help?</h3>
+      <p style="font-size: var(--fluid-body); color: var(--swiss-gray-800); margin-bottom: var(--space-md);">
         If you have questions about onboarding or Job Club, reach out to us:
       </p>
-      <ul class="space-y-2 text-gray-700">
-        <li>📧 Email: <a href="mailto:jobclub@njit.edu" class="link-swiss">jobclub@njit.edu</a></li>
-        <li>💬 Discord: <a href="https://discord.gg/jobclub" class="link-swiss">Job Club Server</a></li>
-        <li>📅 Schedule: <a href="https://calendly.com/jobclub" class="link-swiss">Office Hours</a></li>
+      <ul style="display:flex;flex-direction:column;gap:var(--space-sm);font-size: var(--fluid-body-sm);color: var(--swiss-gray-800);">
+        <li>📧 Email: <a href="mailto:jobclub@njit.edu" style="color: var(--swiss-black); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;">jobclub@njit.edu</a></li>
+        <li>💬 Discord: <a href="https://discord.gg/jobclub" style="color: var(--swiss-black); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;">Job Club Server</a></li>
+        <li>📅 Schedule: <a href="https://calendly.com/jobclub" style="color: var(--swiss-black); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;">Office Hours</a></li>
       </ul>
     </div>
   </div>
