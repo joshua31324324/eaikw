@@ -1,0 +1,167 @@
+{
+  "zapierTemplateName": "Job Club Personalized Onboarding",
+  "description": "Sends personalized onboarding emails to new Job Club members based on their profile",
+  "steps": [
+    {
+      "stepNumber": 1,
+      "name": "Webhook Trigger",
+      "app": "Webhooks by Zapier",
+      "action": "Catch Raw Hook",
+      "instructions": [
+        "1. Copy the webhook URL provided in the trigger setup",
+        "2. Add it to .env.local as ZAPIER_ONBOARDING_WEBHOOK",
+        "3. Click 'Test this step' after submitting a form"
+      ],
+      "expectedFields": [
+        "memberId",
+        "name",
+        "email",
+        "careerGoal",
+        "missingAssets (array)",
+        "completionEstimate",
+        "criticalAssets (array)",
+        "recommendedAssets (array)"
+      ]
+    },
+    {
+      "stepNumber": 2,
+      "name": "Format Email Subject",
+      "app": "Formatter by Zapier",
+      "action": "Text - Format",
+      "configuration": {
+        "inputText": "Your Personalized Career Path - Job Club",
+        "outputFormat": "Plain text"
+      },
+      "instructions": [
+        "1. Use the subject line as shown",
+        "2. This will be the email subject line"
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "name": "Build Email Body",
+      "app": "Formatter by Zapier",
+      "action": "Text - Format",
+      "configuration": {
+        "inputFormat": "HTML",
+        "instructions": [
+          "1. Copy the HTML email template from ZAPIER_EMAIL_SETUP.md",
+          "2. Paste it into the formatter",
+          "3. Map these fields from the webhook:"
+        ],
+        "fieldMappings": [
+          "{{Name}} → name",
+          "{{Email}} → email",
+          "{{CareerGoal}} → careerGoal",
+          "{{CompletionEstimate}} → completionEstimate",
+          "{{MissingAssetsCritical}} → criticalAssets",
+          "{{MissingAssetsRecommended}} → recommendedAssets"
+        ]
+      }
+    },
+    {
+      "stepNumber": 4,
+      "name": "Send Email",
+      "app": "Gmail (or SendGrid/Mailgun)",
+      "action": "Send Email",
+      "configuration": {
+        "fromEmail": "jobclub@njit.edu",
+        "toEmail": "use field 'email' from webhook",
+        "subject": "use output from step 2",
+        "bodyHtml": "use output from step 3",
+        "isHtml": true
+      },
+      "instructions": [
+        "1. Connect your Gmail account (or SendGrid)",
+        "2. Set 'To:' to the email field from webhook",
+        "3. Set 'Subject:' to the formatter output from step 2",
+        "4. Set 'Body:' to the formatter output from step 3",
+        "5. Toggle 'Is HTML' to ON",
+        "6. Test sending with sample data"
+      ],
+      "notes": {
+        "gmail": "Limited to 500 emails/day free",
+        "sendgrid": "Recommended - 100 free emails/day, easy scaling",
+        "mailgun": "Also good - generous free tier"
+      }
+    },
+    {
+      "stepNumber": 5,
+      "name": "Discord Notification (Optional)",
+      "app": "Discord",
+      "action": "Send Channel Message",
+      "configuration": {
+        "webhook": "your Discord webhook URL",
+        "channel": "#jobclub-intros",
+        "message": "👋 **{{name}}** from {{careerGoal}} just joined Job Club!"
+      },
+      "instructions": [
+        "1. Get your Discord webhook URL from server settings",
+        "2. Create webhook for #jobclub-intros channel",
+        "3. Paste webhook URL here",
+        "4. Customize message text as desired"
+      ],
+      "isOptional": true
+    }
+  ],
+  "testData": {
+    "memberId": "test-123",
+    "name": "Emily Johnson",
+    "email": "emily@njit.edu",
+    "major": "Computer Science",
+    "graduationYear": 2025,
+    "careerGoal": "ai-engineer",
+    "hasLinkedIn": true,
+    "hasGitHub": true,
+    "hasPortfolio": false,
+    "hasCalendly": false,
+    "completionEstimate": "2-4 hours",
+    "criticalAssets": [],
+    "recommendedAssets": [
+      {
+        "asset": "Personal Portfolio Website",
+        "priority": "recommended",
+        "guide": "https://jobclub.njit.edu/resources#portfolio-templates",
+        "estimatedTime": "2-4 hours",
+        "description": "Display your best work and tell your professional story"
+      },
+      {
+        "asset": "Calendly or Scheduling Link",
+        "priority": "recommended",
+        "guide": "https://jobclub.njit.edu/resources#calendly-setup",
+        "estimatedTime": "10-15 minutes",
+        "description": "Make it easy for mentors and employers to book time with you"
+      }
+    ]
+  },
+  "emailTemplate": {
+    "source": "docs/ZAPIER_EMAIL_SETUP.md",
+    "features": [
+      "Responsive design for mobile/desktop",
+      "Personalized greeting with name",
+      "Dynamic asset lists based on what's missing",
+      "Career-specific guidance",
+      "Resource recommendations",
+      "Job Club and Discord links",
+      "FAQ section"
+    ]
+  },
+  "troubleshooting": {
+    "emailNotSending": [
+      "Verify Gmail/SendGrid is authenticated",
+      "Check 'To' field maps to email correctly",
+      "Verify subject and body are mapped",
+      "Check body HTML toggle is ON"
+    ],
+    "webhookNotWorking": [
+      "Verify webhook URL copied correctly",
+      "Check for trailing spaces",
+      "Submit form and check Zapier history"
+    ],
+    "missingFields": [
+      "Verify API is sending all fields",
+      "Check field names match exactly (case-sensitive)",
+      "Use {{fieldName}} syntax in Zapier"
+    ]
+  }
+}
