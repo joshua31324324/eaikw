@@ -3,6 +3,7 @@
  * - Loads only essential cookies by default
  * - Delays analytics scripts until consent is given
  * - Stores user preferences across sessions
+ * - Works with both local hosting and GitHub Pages
  */
 
 (function () {
@@ -10,6 +11,19 @@
 
   const CONSENT_KEY = "cookie_consent";
   const CONSENT_EXPIRY_DAYS = 365;
+
+  // Detect base path from current location
+  const getBasePath = () => {
+    const path = window.location.pathname;
+    // If path starts with /eaikw, we're on GitHub Pages
+    if (path.startsWith("/eaikw")) {
+      return "/eaikw";
+    }
+    // Otherwise, local hosting
+    return "";
+  };
+
+  const BASE_PATH = getBasePath();
 
   const CookieConsent = {
     init() {
@@ -53,7 +67,7 @@
               <p id="cookie-consent-desc" style="font-size: 0.875rem; color: var(--swiss-gray-300); margin: 0; max-width: 800px;">
                 We use cookies to improve your experience. Essential cookies are always enabled. 
                 Analytics cookies help us understand how you use our site. 
-                <a href="/privacy/" style="color: var(--swiss-white); text-decoration: underline;">Read our Privacy Policy</a>
+                <a href="${BASE_PATH}/privacy/" style="color: var(--swiss-white); text-decoration: underline;">Read our Privacy Policy</a>
               </p>
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center;">
@@ -85,7 +99,7 @@
               ">
                 Reject All
               </button>
-              <a href="/privacy/" style="
+              <a href="${BASE_PATH}/privacy/" style="
                 padding: 0.75rem 1.5rem;
                 color: var(--swiss-white);
                 text-decoration: underline;

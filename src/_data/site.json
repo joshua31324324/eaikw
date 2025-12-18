@@ -1,15 +1,15 @@
 {
-  "title": "Job Club - AI Career Accelerator (NJIT)",
-  "description": "Student-facing AI career accelerator for NJIT students to become AI consultants, startup founders, and AI-savvy developers with portfolio-first guidance.",
-  "author": "NJIT Job Club",
-  "url": "https://joshua31324324.github.io/eaikw",
+  "title": "Job Club | AI Career Accelerator",
+  "description": "Student-facing AI career accelerator helping students become AI consultants, startup founders, and AI-savvy developers with portfolio-first guidance.",
+  "author": "Job Club",
+  "url": "https://jobclub.com",
   "social": {
     "github": "https://github.com/joshua31324324/eaikw",
     "discord": "https://discord.gg/jobclub",
     "linkedin": "https://linkedin.com/company/njit-job-club"
   },
   "jobclub": {
-    "tagline": "Turn NJIT students into career-ready AI professionals.",
+    "tagline": "Turn students into career-ready AI professionals.",
     "mission": "Provide guided onboarding, mentor-backed sprints, and portfolio-first workflows so students can become AI consultants, founders, or AI-savvy developers.",
     "value_props": [
       "Structured onboarding with checklists",

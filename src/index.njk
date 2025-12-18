@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 layout: layouts/base.njk
 title: Home
@@ -7,17 +6,17 @@ title: Home
 {% import "components/ui.njk" as ui %}
 
 {# Hero #}
-<section data-component="hero" data-section="home" class="relative" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
+<section data-component="hero" data-section="home" class="relative" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
   <div class="swiss-grid">
     <div class="swiss-col-12 md:swiss-col-7" style="padding-right: var(--space-3xl);">
       <div style="margin-bottom: var(--space-xl); display: inline-block;">
-        <img src="{{ '/images/job-club-logo.svg' | baseUrl }}" alt="Job Club" style="height: 80px; width: auto; display: block;">
+        <img src="{{ '/images/job-club-logo.svg' | baseUrl }}" alt="Job Club" style="height: 110px; width: auto; display: block;">
       </div>
       <div style="border-left: 3px solid var(--swiss-black); padding-left: var(--space-lg); margin-bottom: var(--space-xl);">
-        <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">Job Club · NJIT</p>
+        <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">Job Club</p>
       </div>
       <h1 class="font-bold leading-none" style="font-size: var(--fluid-display); letter-spacing: -0.03em; line-height: 0.95; margin-bottom: var(--space-2xl);">
-        Turn NJIT students into career-ready AI consultants, founders, and developers.
+        Turn students into career-ready AI consultants, founders, and developers.
       </h1>
       <p class="text-lg" style="color: var(--swiss-gray-800); max-width: 640px; margin-bottom: var(--space-2xl);">
         Guided onboarding, mentor-backed sprints, events, and portfolio-first workflows. Start now, get a personalized checklist, and join the Discord community.
@@ -65,7 +64,7 @@ title: Home
   {"kicker":"Step 3","title":"Join events & Discord","body":"Workshops, office hours, hack nights, and #jobclub-intros."},
   {"kicker":"Step 4","title":"Ship portfolio proofs","body":"Templates to show AI consulting or product builds."}
 ] %}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
+<section style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
   <div class="swiss-grid">
     <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
       <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">How Job Club Works</p>
@@ -79,7 +78,7 @@ title: Home
 </section>
 
 {# Events preview #}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
+<section style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
   <div class="swiss-grid">
     <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
       <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">Events</p>
@@ -108,7 +107,7 @@ title: Home
 </section>
 
 {# Resources preview #}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl); background: var(--swiss-black); color: var(--swiss-white);">
+<section style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl); background: var(--swiss-black); color: var(--swiss-white);">
   <div class="swiss-grid">
     <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
       <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-400); letter-spacing: 0.2em;">Resources</p>
@@ -137,14 +136,14 @@ title: Home
 </section>
 
 {# Portfolio guidance #}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
+<section style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
   <div class="swiss-grid">
     <div class="swiss-col-12 md:swiss-col-6" style="margin-bottom: var(--space-3xl);">
       <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">Portfolio-first</p>
       <h2 class="font-black" style="font-size: var(--fluid-h2); margin-top: var(--space-md); margin-bottom: var(--space-md); letter-spacing: -0.02em;">Show proof, not just intent.</h2>
       <p class="text-lg" style="color: var(--swiss-gray-700);">Use our checklist and examples to build a portfolio recruiters can skim in 60 seconds.</p>
       <div class="flex flex-col sm:flex-row gap-4" style="margin-top: var(--space-xl);">
-        <a href="/jobclub-portfolio/" class="btn-swiss-primary">View portfolio checklist</a>
+        <a href="/portfolio/" class="btn-swiss-primary">Explore career paths</a>
         <a href="https://kaw393939.github.io/117_final_fall_2025/portfolio/" class="btn-swiss" target="_blank" rel="noopener noreferrer">See model portfolio</a>
       </div>
     </div>
@@ -164,28 +163,25 @@ title: Home
 
 {# Student Testimonials #}
 {% set testimonials = [
-  {"name":"Aisha Khan","meta":"Computer Science · 2026","quote":"Job Club made my onboarding checklist crystal clear. I landed a paid AI internship after the events and mentor office hours."},
-  {"name":"Carlos Rivera","meta":"Information Systems · 2025","quote":"The resources and Discord feedback loops helped me ship a portfolio piece that recruiters actually read."},
-  {"name":"Mei Chen","meta":"Data Science · 2024","quote":"Events plus the templates cut my prep time in half. I walked into interviews with proof-of-work, not just buzzwords."}
+  {"name":"Aisha Khan","path":"AI Consultant","quote":"Job Club made my onboarding checklist crystal clear. I landed a paid AI internship after the events and mentor office hours."},
+  {"name":"Carlos Rivera","path":"Startup Founder","quote":"The resources and Discord feedback loops helped me ship a portfolio piece that recruiters actually read."},
+  {"name":"Mei Chen","path":"AI-Savvy Developer","quote":"Events plus the templates cut my prep time in half. I walked into interviews with proof-of-work, not just buzzwords."}
 ] %}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl); background: var(--swiss-gray-100);">
+<section style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl); background: var(--swiss-gray-100);">
   <div class="swiss-grid">
-    <div class="swiss-col-12 md:swiss-col-6" style="margin-bottom: var(--space-3xl);">
-      <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); margin-bottom: var(--space-md); letter-spacing: 0.15em;">03 — Student Testimonials</p>
-      <h2 class="font-black" style="font-size: var(--fluid-h1); letter-spacing: -0.02em; line-height: 1.1;">Proof from peers who shipped and got hired.</h2>
-    </div>
-    <div class="swiss-col-12 md:swiss-col-6" style="margin-bottom: var(--space-3xl); display: flex; align-items: flex-end;">
-      <p class="text-lg leading-relaxed" style="color: var(--swiss-gray-700); max-width: 520px;">Authentic wins from NJIT students using the Job Club onboarding, events, and resource stack to accelerate their careers.</p>
+    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
+      <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); margin-bottom: var(--space-md); letter-spacing: 0.15em;">Student Testimonials</p>
+      <h2 class="font-black" style="font-size: var(--fluid-h2); letter-spacing: -0.02em;">Proof from peers who shipped and got hired.</h2>
     </div>
 
     <div class="swiss-col-12 grid grid-cols-1 md:grid-cols-3" style="gap: var(--space-xl);">
       {% for t in testimonials %}
       <article class="h-full" style="background: var(--swiss-white); border: 2px solid var(--swiss-black); padding: var(--space-2xl); display: flex; flex-direction: column; gap: var(--space-lg);">
         <div>
-          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-sm);">{{ t.meta }}</p>
-          <h3 class="font-bold" style="font-size: var(--fluid-h4); letter-spacing: -0.01em;">{{ t.name }}</h3>
+          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-sm);">{{ t.path }}</p>
+          <h3 class="font-bold text-xl">{{ t.name }}</h3>
         </div>
-        <p class="leading-relaxed" style="color: var(--swiss-gray-800);">“{{ t.quote }}”</p>
+        <p class="leading-relaxed" style="color: var(--swiss-gray-800);">"{{ t.quote }}"</p>
       </article>
       {% endfor %}
     </div>
@@ -195,215 +191,10 @@ title: Home
 {# Final CTA #}
 {{ ui.ctaBanner(
   'Ready to start? Get your checklist and join the community.',
-  'Onboarding takes ~5 minutes. You’ll immediately see what’s missing and where to go next.',
+  'Onboarding takes ~5 minutes. You will immediately see what is missing and where to go next.',
   'Start onboarding',
   '/jobclub/onboarding/',
   'Join Discord',
   site.social.discord,
   true
 ) }}
-=======
----
-layout: layouts/base.njk
-title: Home
----
-
-{% import "components/ui.njk" as ui %}
-
-{# Hero #}
-<section data-component="hero" data-section="home" class="relative" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
-  <div class="swiss-grid">
-    <div class="swiss-col-12 md:swiss-col-7" style="padding-right: var(--space-3xl);">
-      <div style="margin-bottom: var(--space-xl); display: inline-block;">
-        <img src="{{ '/images/job-club-logo.svg' | baseUrl }}" alt="Job Club" style="height: 80px; width: auto; display: block;">
-      </div>
-      <div style="border-left: 3px solid var(--swiss-black); padding-left: var(--space-lg); margin-bottom: var(--space-xl);">
-        <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">Job Club · NJIT</p>
-      </div>
-      <h1 class="font-bold leading-none" style="font-size: var(--fluid-display); letter-spacing: -0.03em; line-height: 0.95; margin-bottom: var(--space-2xl);">
-        Turn NJIT students into career-ready AI consultants, founders, and developers.
-      </h1>
-      <p class="text-lg" style="color: var(--swiss-gray-800); max-width: 640px; margin-bottom: var(--space-2xl);">
-        Guided onboarding, mentor-backed sprints, events, and portfolio-first workflows. Start now, get a personalized checklist, and join the Discord community.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4" style="margin-bottom: var(--space-2xl);">
-        <a href="/jobclub/onboarding/" class="btn-swiss-primary">Start Onboarding</a>
-        <a href="{{ site.social.discord }}" class="btn-swiss" target="_blank" rel="noopener noreferrer">Join Discord</a>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" style="max-width: 720px;">
-        <div class="p-4 border-2" style="border-color: var(--swiss-black);">
-          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600);">Outcome</p>
-          <p class="font-bold">Portfolio-ready in weeks</p>
-        </div>
-        <div class="p-4 border-2" style="border-color: var(--swiss-black);">
-          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600);">Support</p>
-          <p class="font-bold">Mentors, events, office hours</p>
-        </div>
-        <div class="p-4 border-2" style="border-color: var(--swiss-black);">
-          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600);">Automation</p>
-          <p class="font-bold">CRM + Discord + checklists</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="swiss-col-12 md:swiss-col-5" style="padding-top: var(--space-4xl);">
-      <div class="card" style="border: 2px solid var(--swiss-black); padding: var(--space-2xl); background: var(--swiss-white);">
-        <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-md);">Why Join</p>
-        <ul class="space-y-3 text-lg" style="color: var(--swiss-gray-800);">
-          <li>Personalized onboarding checklist</li>
-          <li>Discord community + mentor intros</li>
-          <li>Events, workshops, and office hours</li>
-          <li>Portfolio guidance with real examples</li>
-          <li>Automation-ready workflows (CRM, Discord)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="swiss-divider"></div>
-</section>
-
-{# How it works #}
-{% set steps = [
-  {"kicker":"Step 1","title":"Complete onboarding","body":"Share your links, goals, and availability."},
-  {"kicker":"Step 2","title":"Get checklist + gaps","body":"We flag missing assets and send guides."},
-  {"kicker":"Step 3","title":"Join events & Discord","body":"Workshops, office hours, hack nights, and #jobclub-intros."},
-  {"kicker":"Step 4","title":"Ship portfolio proofs","body":"Templates to show AI consulting or product builds."}
-] %}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
-  <div class="swiss-grid">
-    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
-      <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">How Job Club Works</p>
-      <h2 class="font-black" style="font-size: var(--fluid-h2); margin-top: var(--space-md); margin-bottom: var(--space-md); letter-spacing: -0.02em;">4 steps from onboarding to hired.</h2>
-      <p class="text-lg" style="color: var(--swiss-gray-700); max-width: 720px;">Structured flow: submit once, get a personalized checklist, join Discord, and ship portfolio pieces recruiters care about.</p>
-    </div>
-    <div class="swiss-col-12">
-      {{ ui.stepGrid(steps, 4) }}
-    </div>
-  </div>
-</section>
-
-{# Events preview #}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
-  <div class="swiss-grid">
-    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
-      <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">Events</p>
-      <h2 class="font-black" style="font-size: var(--fluid-h2); margin-top: var(--space-md); margin-bottom: var(--space-md); letter-spacing: -0.02em;">Workshops, office hours, hack nights.</h2>
-      <p class="text-lg" style="color: var(--swiss-gray-700); max-width: 720px;">Join live sessions to practice consulting, ship features, and get feedback.</p>
-    </div>
-
-    <div class="swiss-col-12 grid grid-cols-1 md:grid-cols-3" style="gap: var(--space-xl);">
-      {% for e in events %}
-        {% if loop.index0 < 3 %}
-          {{ ui.simpleCard({
-            kicker: e.when ~ ' · ' ~ e.where,
-            title: e.title,
-            body: e.summary,
-            cta: 'Details',
-            href: '/jobclub/events/'
-          }) }}
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    <div class="swiss-col-12" style="margin-top: var(--space-xl);">
-      <a href="/jobclub/events/" class="btn-swiss-primary">View all events</a>
-    </div>
-  </div>
-</section>
-
-{# Resources preview #}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl); background: var(--swiss-black); color: var(--swiss-white);">
-  <div class="swiss-grid">
-    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
-      <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-400); letter-spacing: 0.2em;">Resources</p>
-      <h2 class="font-black" style="font-size: var(--fluid-h2); margin-top: var(--space-md); margin-bottom: var(--space-md); letter-spacing: -0.02em;">Guides built for AI career launches.</h2>
-      <p class="text-lg" style="color: var(--swiss-gray-200); max-width: 720px;">Step-by-step templates for LinkedIn, GitHub, portfolios, and Calendly automation.</p>
-    </div>
-
-    <div class="swiss-col-12 grid grid-cols-1 md:grid-cols-3" style="gap: var(--space-xl);">
-      {% for r in resources %}
-        {% if loop.index0 < 3 %}
-          {{ ui.simpleCard({
-            kicker: r.tag,
-            title: r.title,
-            body: r.summary,
-            cta: 'Read guide',
-            href: r.href
-          }, 'dark') }}
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    <div class="swiss-col-12" style="margin-top: var(--space-xl);">
-      <a href="/jobclub/resources/" class="btn-swiss">Browse all resources</a>
-    </div>
-  </div>
-</section>
-
-{# Portfolio guidance #}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
-  <div class="swiss-grid">
-    <div class="swiss-col-12 md:swiss-col-6" style="margin-bottom: var(--space-3xl);">
-      <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">Portfolio-first</p>
-      <h2 class="font-black" style="font-size: var(--fluid-h2); margin-top: var(--space-md); margin-bottom: var(--space-md); letter-spacing: -0.02em;">Show proof, not just intent.</h2>
-      <p class="text-lg" style="color: var(--swiss-gray-700);">Use our checklist and examples to build a portfolio recruiters can skim in 60 seconds.</p>
-      <div class="flex flex-col sm:flex-row gap-4" style="margin-top: var(--space-xl);">
-        <a href="/portfolio/" class="btn-swiss-primary">View portfolio checklist</a>
-        <a href="https://kaw393939.github.io/117_final_fall_2025/portfolio/" class="btn-swiss" target="_blank" rel="noopener noreferrer">See model portfolio</a>
-      </div>
-    </div>
-    <div class="swiss-col-12 md:swiss-col-6" style="padding-top: var(--space-2xl);">
-      <div class="p-5 border-2" style="border-color: var(--swiss-black);">
-        <ul class="space-y-3" style="color: var(--swiss-gray-800);">
-          <li>✔ LinkedIn + GitHub polish</li>
-          <li>✔ 2–3 AI project writeups</li>
-          <li>✔ Calendly + intro blurb</li>
-          <li>✔ Case-study template for consulting gigs</li>
-          <li>✔ Resume + portfolio alignment</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-{# Student Testimonials #}
-{% set testimonials = [
-  {"name":"Aisha Khan","meta":"Computer Science · 2026","quote":"Job Club made my onboarding checklist crystal clear. I landed a paid AI internship after the events and mentor office hours."},
-  {"name":"Carlos Rivera","meta":"Information Systems · 2025","quote":"The resources and Discord feedback loops helped me ship a portfolio piece that recruiters actually read."},
-  {"name":"Mei Chen","meta":"Data Science · 2024","quote":"Events plus the templates cut my prep time in half. I walked into interviews with proof-of-work, not just buzzwords."}
-] %}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl); background: var(--swiss-gray-100);">
-  <div class="swiss-grid">
-    <div class="swiss-col-12 md:swiss-col-6" style="margin-bottom: var(--space-3xl);">
-      <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); margin-bottom: var(--space-md); letter-spacing: 0.15em;">03 — Student Testimonials</p>
-      <h2 class="font-black" style="font-size: var(--fluid-h1); letter-spacing: -0.02em; line-height: 1.1;">Proof from peers who shipped and got hired.</h2>
-    </div>
-    <div class="swiss-col-12 md:swiss-col-6" style="margin-bottom: var(--space-3xl); display: flex; align-items: flex-end;">
-      <p class="text-lg leading-relaxed" style="color: var(--swiss-gray-700); max-width: 520px;">Authentic wins from NJIT students using the Job Club onboarding, events, and resource stack to accelerate their careers.</p>
-    </div>
-
-    <div class="swiss-col-12 grid grid-cols-1 md:grid-cols-3" style="gap: var(--space-xl);">
-      {% for t in testimonials %}
-      <article class="h-full" style="background: var(--swiss-white); border: 2px solid var(--swiss-black); padding: var(--space-2xl); display: flex; flex-direction: column; gap: var(--space-lg);">
-        <div>
-          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-sm);">{{ t.meta }}</p>
-          <h3 class="font-bold" style="font-size: var(--fluid-h4); letter-spacing: -0.01em;">{{ t.name }}</h3>
-        </div>
-        <p class="leading-relaxed" style="color: var(--swiss-gray-800);">“{{ t.quote }}”</p>
-      </article>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-{# Final CTA #}
-{{ ui.ctaBanner(
-  'Ready to start? Get your checklist and join the community.',
-  'Onboarding takes ~5 minutes. You’ll immediately see what’s missing and where to go next.',
-  'Start onboarding',
-  '/jobclub/onboarding/',
-  'Join Discord',
-  site.social.discord,
-  true
-) }}
->>>>>>> 45d8bfd154a3398d2dcf3f2b4003f7732b96e37f
