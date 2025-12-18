@@ -181,6 +181,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/portfolio/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/portfolio/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
+                            <span>Portfolio</span>
+                            {% if '/portfolio/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
+                        </a>
+                    </li>
+                    <li>
                         <a href="/jobclub/about/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if page.url == '/jobclub/about/' %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
                             <span>About</span>
                             {% if page.url == '/jobclub/about/' %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
@@ -275,11 +281,21 @@
                     </li>
                     <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
                         <a 
+                            href="/portfolio/" 
+                            class="block font-bold uppercase tracking-wider"
+                            style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/portfolio/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
+                        >
+                            <span style="display: block; margin-bottom: 0.25rem;">05</span>
+                            <span>Portfolio</span>
+                        </a>
+                    </li>
+                    <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
+                        <a 
                             href="/jobclub/about/" 
                             class="block font-bold uppercase tracking-wider"
                             style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if page.url == '/jobclub/about/' %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
                         >
-                            <span style="display: block; margin-bottom: 0.25rem;">05</span>
+                            <span style="display: block; margin-bottom: 0.25rem;">06</span>
                             <span>About</span>
                         </a>
                     </li>
@@ -338,7 +354,9 @@
                                 <li><a href="/jobclub/onboarding/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Onboarding</a></li>
                                 <li><a href="/jobclub/events/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Events</a></li>
                                 <li><a href="/jobclub/resources/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Resources</a></li>
+                                <li><a href="/portfolio/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Portfolio</a></li>
                                 <li><a href="/jobclub/about/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">About</a></li>
+                                <li><a href="/privacy/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Privacy</a></li>
                             </ul>
                         </dd>
                     </dl>
@@ -403,14 +421,17 @@
                 </div>
                 <div class="md:text-right">
                     <p class="text-xs" style="color: var(--swiss-gray-500);">
+                        <a href="/privacy/" class="hover:underline" style="color: var(--swiss-gray-600); transition: color 0.2s; margin-right: var(--space-md);">Privacy Policy</a>
                         Built with 
                         <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Eleventy</a>
-                        / Swiss design system (no Tailwind)
                     </p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- GDPR Cookie Consent Banner - Loads before analytics -->
+    <script src="{{ '/js/cookie-consent.js' | baseUrl }}"></script>
 
     <!-- Swiss Mobile Menu - Vanilla JavaScript (CSP-safe) -->
     <script src="{{ '/js/mobile-menu.bundle.js' | baseUrl }}"></script>

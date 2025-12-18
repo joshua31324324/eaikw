@@ -1,0 +1,284 @@
+---
+layout: layouts/base.njk
+title: AI-Savvy Developer Portfolio Projects
+description: Build a developer portfolio with AI-assisted apps, APIs, automation, and open-source contributions.
+---
+
+{% import "components/ui.njk" as ui %}
+
+{# Hero #}
+<section class="relative" style="padding-top: var(--space-5xl); padding-bottom: var(--space-4xl);">
+  <div class="swiss-grid">
+    <div class="swiss-col-12">
+      <a href="/portfolio/" class="inline-flex items-center text-sm font-bold uppercase tracking-wider" style="color: var(--swiss-gray-600); margin-bottom: var(--space-lg); letter-spacing: 0.1em;">
+        ← Back to Paths
+      </a>
+    </div>
+    <div class="swiss-col-12 md:swiss-col-8">
+      <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-red); letter-spacing: 0.2em; margin-bottom: var(--space-lg);">Career Path · AI-Savvy Developer</p>
+      <h1 class="font-black leading-none" style="font-size: var(--fluid-display); letter-spacing: -0.03em; line-height: 0.95; margin-bottom: var(--space-2xl);">
+        Code faster. Ship smarter. Prove execution.
+      </h1>
+      <p class="text-xl leading-relaxed" style="color: var(--swiss-gray-800); max-width: 720px;">
+        AI-savvy developers build full-stack apps, integrate APIs, and automate workflows—all with AI tooling. These projects prove you can ship production-quality code faster than traditional devs.
+      </p>
+    </div>
+  </div>
+  <div class="swiss-divider"></div>
+</section>
+
+{# Portfolio Projects #}
+<section style="padding-top: var(--space-4xl); padding-bottom: var(--space-5xl);">
+  <div class="swiss-grid">
+    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
+      <h2 class="font-black" style="font-size: var(--fluid-h2); letter-spacing: -0.02em;">Portfolio projects for developers.</h2>
+      <p class="text-lg" style="color: var(--swiss-gray-700); margin-top: var(--space-md); max-width: 720px;">
+        Complete 2–3 of these projects to build a developer portfolio. Focus on shipping real apps, not tutorials.
+      </p>
+    </div>
+
+    {# Project 1: Full-Stack AI App #}
+    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
+      <article style="border: 2px solid var(--swiss-black); padding: var(--space-2xl); background: var(--swiss-white);">
+        <div style="margin-bottom: var(--space-lg);">
+          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-sm);">Project 01 · Full-Stack</p>
+          <h3 class="font-black" style="font-size: var(--fluid-h3); letter-spacing: -0.01em; margin-bottom: var(--space-md);">AI-Assisted Full-Stack App</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">What you'll build:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>• Build a full-stack app (Next.js, React, Node, Python)</li>
+              <li>• Integrate AI API (OpenAI, Anthropic, Replicate)</li>
+              <li>• Add user auth, database, and basic UI</li>
+              <li>• Deploy to production (Vercel, Railway, Fly.io)</li>
+              <li>• Use AI tools for 80% of the code (Cursor, v0, Bolt, Claude)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">Portfolio deliverables:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>✓ Live app URL</li>
+              <li>✓ GitHub repo (clean code, README)</li>
+              <li>✓ Demo video (2–3 minutes)</li>
+              <li>✓ Write-up (LinkedIn or blog post)</li>
+            </ul>
+            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--swiss-gray-100); border-left: 3px solid var(--swiss-red);">
+              <p class="text-sm font-bold" style="color: var(--swiss-gray-800);">Pro tip: Document your AI workflow. "I built this in 3 days using Cursor and Claude" = modern dev credibility.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    {# Project 2: API Integration Project #}
+    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
+      <article style="border: 2px solid var(--swiss-black); padding: var(--space-2xl); background: var(--swiss-white);">
+        <div style="margin-bottom: var(--space-lg);">
+          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-sm);">Project 02 · API Integration</p>
+          <h3 class="font-black" style="font-size: var(--fluid-h3); letter-spacing: -0.01em; margin-bottom: var(--space-md);">Multi-API Integration Project</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">What you'll build:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>• Build a tool that combines 2–3 APIs (Stripe, Twilio, Airtable, Notion)</li>
+              <li>• Add automation logic (webhooks, cron jobs)</li>
+              <li>• Create a simple UI or CLI</li>
+              <li>• Document API usage and error handling</li>
+              <li>• Deploy and make it publicly usable</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">Portfolio deliverables:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>✓ Live tool URL or GitHub repo</li>
+              <li>✓ API integration diagram</li>
+              <li>✓ Demo video or GIF</li>
+              <li>✓ Technical write-up (Dev.to or Medium)</li>
+            </ul>
+            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--swiss-gray-100); border-left: 3px solid var(--swiss-red);">
+              <p class="text-sm font-bold" style="color: var(--swiss-gray-800);">Pro tip: Pick APIs you'd actually use. Real utility = better portfolio story than toy projects.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    {# Project 3: Automation Scripts #}
+    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
+      <article style="border: 2px solid var(--swiss-black); padding: var(--space-2xl); background: var(--swiss-white);">
+        <div style="margin-bottom: var(--space-lg);">
+          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-sm);">Project 03 · Automation</p>
+          <h3 class="font-black" style="font-size: var(--fluid-h3); letter-spacing: -0.01em; margin-bottom: var(--space-md);">Workflow Automation Scripts</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">What you'll build:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>• Build 3–5 automation scripts (Python, Node.js, Bash)</li>
+              <li>• Automate real tasks (data scraping, file processing, email reports)</li>
+              <li>• Add error handling and logging</li>
+              <li>• Create a CLI or simple UI</li>
+              <li>• Open-source on GitHub with docs</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">Portfolio deliverables:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>✓ GitHub repo with clean README</li>
+              <li>✓ Demo GIFs or video</li>
+              <li>✓ PyPI or npm package (bonus points)</li>
+              <li>✓ Write-up explaining use cases</li>
+            </ul>
+            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--swiss-gray-100); border-left: 3px solid var(--swiss-red);">
+              <p class="text-sm font-bold" style="color: var(--swiss-gray-800);">Pro tip: Solve your own problems. Real automation = better portfolio than contrived examples.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    {# Project 4: Open-Source Contribution #}
+    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
+      <article style="border: 2px solid var(--swiss-black); padding: var(--space-2xl); background: var(--swiss-white);">
+        <div style="margin-bottom: var(--space-lg);">
+          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-sm);">Project 04 · Open Source</p>
+          <h3 class="font-black" style="font-size: var(--fluid-h3); letter-spacing: -0.01em; margin-bottom: var(--space-md);">Open-Source Contribution with AI Tooling</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">What you'll build:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>• Find an open-source project you use</li>
+              <li>• Fix a bug or add a feature (use Cursor, Claude, Copilot)</li>
+              <li>• Submit a clean pull request</li>
+              <li>• Document your contribution process</li>
+              <li>• Get it merged (or learn from feedback)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">Portfolio deliverables:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>✓ Link to merged PR</li>
+              <li>✓ Contribution write-up (blog or LinkedIn)</li>
+              <li>✓ Process doc (how you used AI to contribute)</li>
+              <li>✓ GitHub profile with contributions visible</li>
+            </ul>
+            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--swiss-gray-100); border-left: 3px solid var(--swiss-red);">
+              <p class="text-sm font-bold" style="color: var(--swiss-gray-800);">Pro tip: Even unmerged PRs show initiative. Document learnings = developer growth mindset.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    {# Project 5: Chrome Extension or CLI Tool #}
+    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
+      <article style="border: 2px solid var(--swiss-black); padding: var(--space-2xl); background: var(--swiss-white);">
+        <div style="margin-bottom: var(--space-lg);">
+          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-sm);">Project 05 · Tool Building</p>
+          <h3 class="font-black" style="font-size: var(--fluid-h3); letter-spacing: -0.01em; margin-bottom: var(--space-md);">Chrome Extension or CLI Tool</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">What you'll build:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>• Build a Chrome extension or CLI tool</li>
+              <li>• Solve a real problem (productivity, dev workflow, data extraction)</li>
+              <li>• Add AI features (summarization, generation, automation)</li>
+              <li>• Publish to Chrome Web Store or npm</li>
+              <li>• Get 50+ users or downloads</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">Portfolio deliverables:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>✓ Live tool (Chrome store or npm package)</li>
+              <li>✓ GitHub repo with README</li>
+              <li>✓ Demo video or GIF</li>
+              <li>✓ Launch post (Product Hunt, X, Reddit)</li>
+            </ul>
+            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--swiss-gray-100); border-left: 3px solid var(--swiss-red);">
+              <p class="text-sm font-bold" style="color: var(--swiss-gray-800);">Pro tip: Tools with users = proof of utility. Even 50 users beats 0 users on a "perfect" project.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    {# Project 6: AI Agent or Chatbot #}
+    <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
+      <article style="border: 2px solid var(--swiss-black); padding: var(--space-2xl); background: var(--swiss-white);">
+        <div style="margin-bottom: var(--space-lg);">
+          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.15em; margin-bottom: var(--space-sm);">Project 06 · AI Integration</p>
+          <h3 class="font-black" style="font-size: var(--fluid-h3); letter-spacing: -0.01em; margin-bottom: var(--space-md);">Custom AI Agent or Chatbot</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">What you'll build:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>• Build a custom AI agent or chatbot</li>
+              <li>• Use LangChain, LlamaIndex, or custom prompts</li>
+              <li>• Add memory, tools, or RAG (retrieval-augmented generation)</li>
+              <li>• Create a UI (Streamlit, Gradio, or web app)</li>
+              <li>• Deploy and make it publicly usable</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">Portfolio deliverables:</p>
+            <ul class="space-y-2" style="color: var(--swiss-gray-700);">
+              <li>✓ Live agent URL or demo</li>
+              <li>✓ GitHub repo with architecture docs</li>
+              <li>✓ Demo video (3–5 minutes)</li>
+              <li>✓ Technical write-up (blog or Twitter thread)</li>
+            </ul>
+            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--swiss-gray-100); border-left: 3px solid var(--swiss-red);">
+              <p class="text-sm font-bold" style="color: var(--swiss-gray-800);">Pro tip: Specialize your agent. A focused agent (legal docs, code review) beats a generic chatbot.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="swiss-divider"></div>
+</section>
+
+{# Developer Mindset #}
+<section style="padding-top: var(--space-4xl); padding-bottom: var(--space-5xl); background: var(--swiss-gray-100);">
+  <div class="swiss-grid">
+    <div class="swiss-col-12 md:swiss-col-6" style="margin-bottom: var(--space-2xl);">
+      <h2 class="font-black" style="font-size: var(--fluid-h2); letter-spacing: -0.02em; margin-bottom: var(--space-xl);">The AI-savvy developer advantage.</h2>
+      <p class="text-lg leading-relaxed" style="color: var(--swiss-gray-700); margin-bottom: var(--space-lg);">
+        Traditional devs write every line. AI-savvy devs use Cursor, Claude, and Copilot to ship 10x faster. Your portfolio should prove you can leverage AI to build production apps, not just complete tutorials.
+      </p>
+    </div>
+    <div class="swiss-col-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 border-2" style="border-color: var(--swiss-black); background: var(--swiss-white);">
+          <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">Ship production code</p>
+          <p style="color: var(--swiss-gray-700);">Deploy real apps. Live URLs beat local projects. Production = proof of completion.</p>
+        </div>
+        <div class="p-6 border-2" style="border-color: var(--swiss-black); background: var(--swiss-white);">
+          <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">Document your AI workflow</p>
+          <p style="color: var(--swiss-gray-700);">Show how you use AI tools to code faster. Transparency = modern dev credibility.</p>
+        </div>
+        <div class="p-6 border-2" style="border-color: var(--swiss-black); background: var(--swiss-white);">
+          <p class="font-bold" style="color: var(--swiss-gray-800); margin-bottom: var(--space-sm);">Focus on utility</p>
+          <p style="color: var(--swiss-gray-700);">Build tools people use. Real users = better portfolio than perfect code no one sees.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# CTA #}
+{{ ui.ctaBanner(
+  'Ready to build your first AI-powered app?',
+  'Pick one project above and ship it this week. Then open-source it. Then do it again.',
+  'Browse Consultant Projects',
+  '/portfolio/ai-consultant/',
+  'Browse Founder Projects',
+  '/portfolio/startup-founder/',
+  false
+) }}
