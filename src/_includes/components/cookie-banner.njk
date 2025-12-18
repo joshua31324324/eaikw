@@ -1,0 +1,171 @@
+---
+# Cookie Consent Banner Component
+# Include this in base.njk layout or main page template
+---
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 hidden">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div class="flex-1">
+      <p class="font-bold mb-2 sm:mb-0">Cookie & Privacy Notice</p>
+      <p class="text-sm text-gray-300">
+        We use privacy-first analytics to understand how you use Job Club. No cookies are set unless you consent. 
+        <a href="/jobclub/privacy/" class="text-blue-400 hover:underline">Read our Privacy Policy</a>
+      </p>
+    </div>
+    <div class="flex gap-3 flex-shrink-0 w-full sm:w-auto">
+      <button id="cookie-reject" class="px-4 py-2 text-sm font-bold bg-gray-700 hover:bg-gray-600 rounded flex-1 sm:flex-none">
+        Reject
+      </button>
+      <button id="cookie-accept" class="px-4 py-2 text-sm font-bold bg-blue-600 hover:bg-blue-700 rounded flex-1 sm:flex-none">
+        Accept
+      </button>
+      <button id="cookie-settings" class="px-4 py-2 text-sm font-bold bg-gray-700 hover:bg-gray-600 rounded flex-1 sm:flex-none">
+        Settings
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookie-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-lg max-w-md w-full p-6">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">Cookie Settings</h2>
+    
+    <div class="space-y-4 mb-6">
+      <!-- Strictly Necessary -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <div class="flex items-start">
+          <input type="checkbox" id="cookie-necessary" checked disabled class="mt-1 mr-3 w-4 h-4">
+          <div class="flex-1">
+            <label for="cookie-necessary" class="font-bold text-gray-900 block">Strictly Necessary</label>
+            <p class="text-sm text-gray-600 mt-1">
+              Essential for security and form functionality. Always enabled.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics -->
+      <div class="border border-gray-200 rounded-lg p-4">
+        <div class="flex items-start">
+          <input type="checkbox" id="cookie-analytics" class="mt-1 mr-3 w-4 h-4">
+          <div class="flex-1">
+            <label for="cookie-analytics" class="font-bold text-gray-900 block">Analytics</label>
+            <p class="text-sm text-gray-600 mt-1">
+              Privacy-first analytics to understand how students use Job Club. No personal data collected.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marketing -->
+      <div class="border border-gray-200 rounded-lg p-4 opacity-50">
+        <div class="flex items-start">
+          <input type="checkbox" id="cookie-marketing" disabled class="mt-1 mr-3 w-4 h-4">
+          <div class="flex-1">
+            <label for="cookie-marketing" class="font-bold text-gray-900 block">Marketing</label>
+            <p class="text-sm text-gray-600 mt-1">
+              Not used by Job Club
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex gap-3">
+      <button id="cookie-modal-close" class="flex-1 px-4 py-2 text-sm font-bold bg-gray-200 text-gray-900 hover:bg-gray-300 rounded">
+        Cancel
+      </button>
+      <button id="cookie-modal-save" class="flex-1 px-4 py-2 text-sm font-bold bg-blue-600 text-white hover:bg-blue-700 rounded">
+        Save Settings
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Cookie consent management
+const cookieBanner = document.getElementById('cookie-banner');
+const cookieModal = document.getElementById('cookie-modal');
+const cookieRejectBtn = document.getElementById('cookie-reject');
+const cookieAcceptBtn = document.getElementById('cookie-accept');
+const cookieSettingsBtn = document.getElementById('cookie-settings');
+const cookieModalClose = document.getElementById('cookie-modal-close');
+const cookieModalSave = document.getElementById('cookie-modal-save');
+const cookieAnalytics = document.getElementById('cookie-analytics');
+
+// Check if user has already made a choice
+function checkCookieConsent() {
+  const consent = localStorage.getItem('jobclub-cookie-consent');
+  if (!consent) {
+    cookieBanner.classList.remove('hidden');
+  } else {
+    loadAnalytics();
+  }
+}
+
+// Save consent and load analytics if enabled
+function saveConsent(analytics = false) {
+  const consent = {
+    necessary: true,
+    analytics: analytics,
+    marketing: false,
+    timestamp: new Date().toISOString()
+  };
+  localStorage.setItem('jobclub-cookie-consent', JSON.stringify(consent));
+  cookieBanner.classList.add('hidden');
+  
+  if (analytics) {
+    loadAnalytics();
+  }
+}
+
+// Load analytics script if consent given
+function loadAnalytics() {
+  const consent = localStorage.getItem('jobclub-cookie-consent');
+  if (consent) {
+    const parsed = JSON.parse(consent);
+    if (parsed.analytics) {
+      // Load Plausible analytics (privacy-first, no cookies)
+      const script = document.createElement('script');
+      script.defer = true;
+      script.src = 'https://plausible.io/js/script.js';
+      script.setAttribute('data-domain', window.location.hostname);
+      document.head.appendChild(script);
+    }
+  }
+}
+
+// Event listeners
+cookieRejectBtn.addEventListener('click', () => saveConsent(false));
+cookieAcceptBtn.addEventListener('click', () => saveConsent(true));
+cookieSettingsBtn.addEventListener('click', () => {
+  cookieBanner.classList.add('hidden');
+  cookieModal.classList.remove('hidden');
+});
+
+cookieModalClose.addEventListener('click', () => {
+  cookieModal.classList.add('hidden');
+  checkCookieConsent();
+});
+
+cookieModalSave.addEventListener('click', () => {
+  saveConsent(cookieAnalytics.checked);
+  cookieModal.classList.add('hidden');
+});
+
+// Check consent on page load
+document.addEventListener('DOMContentLoaded', checkCookieConsent);
+
+// Expose GDPR data access function for future use
+window.jobclubGDPR = {
+  requestDataExport: () => {
+    // Email jobclub@njit.edu with request
+    window.location.href = 'mailto:jobclub@njit.edu?subject=GDPR%20Data%20Export%20Request';
+  },
+  withdrawConsent: () => {
+    localStorage.removeItem('jobclub-cookie-consent');
+    location.reload();
+  }
+};
+</script>
