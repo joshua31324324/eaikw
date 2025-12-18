@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -53,12 +52,29 @@
     {# Favicon and Icons #}
     <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | baseUrl }}">
     
-    {# Stylesheets #}
+        {# Stylesheets #}
     <link rel="preload" href="{{ '/css/main.css' | baseUrl }}" as="style">
     <link rel="stylesheet" href="{{ '/css/main.css' | baseUrl }}">
     <link rel="stylesheet" href="{{ '/css/print.css' | baseUrl }}" media="print">
-    
-    {# Fonts #}
+
+    {# Inline utility tweaks for navbar logo sizing #}
+    <style>
+      .site-logo-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        line-height: 1;
+        overflow: visible;
+      }
+      .site-logo {
+        display: block;
+        height: 52px;
+        width: auto;
+        object-fit: contain;
+        overflow: visible;
+      }
+    </style>    {# Fonts #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
@@ -146,12 +162,12 @@
 </head>
 <body class="font-sans antialiased text-neutral-900 bg-white min-h-screen flex flex-col">
     <!-- Swiss International Typographic Style Navigation -->
-    <header data-component="header" data-testid="main-header" class="sticky top-0 z-50 no-print" style="background-color: var(--swiss-white); border-bottom: 3px solid var(--swiss-black);">
-        <nav role="navigation" aria-label="Primary" style="max-width: 1440px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem;">
-            <div class="flex items-center justify-between" style="height: 64px;">
+    <header data-component="header" data-testid="main-header" class="sticky top-0 z-50 no-print" style="background-color: var(--swiss-white); border-bottom: 3px solid var(--swiss-black); overflow: visible;">
+        <nav role="navigation" aria-label="Primary" style="max-width: 1440px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem; overflow: visible;">
+            <div class="flex items-center justify-between" style="height: 68px; overflow: visible;">
                 <!-- Official Job Club Logo -->
-                <a href="/" class="group hover:opacity-80" style="display: inline-flex; align-items: center; line-height: 1; text-decoration: none; z-index: 60; position: relative; transition: opacity 0.2s;">
-                    <img src="{{ '/images/job-club-logo.svg' | baseUrl }}" alt="Job Club" style="height: 64px; width: auto; display: block;" loading="eager">
+                <a href="/" class="group hover:opacity-80 site-logo-link" style="text-decoration: none; z-index: 60; position: relative; transition: opacity 0.2s;">
+                    <img src="{{ '/images/job-club-logo.svg' | baseUrl }}" alt="Job Club" class="site-logo" loading="eager">
                 </a>
 
                 <!-- Desktop Navigation - Swiss Minimal -->
@@ -178,6 +194,12 @@
                         <a href="/jobclub/resources/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/jobclub/resources/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
                             <span>Resources</span>
                             {% if '/jobclub/resources/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/portfolio/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/portfolio/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
+                            <span>Portfolio</span>
+                            {% if '/portfolio/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
                         </a>
                     </li>
                     <li>
@@ -275,11 +297,21 @@
                     </li>
                     <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
                         <a 
+                            href="/portfolio/" 
+                            class="block font-bold uppercase tracking-wider"
+                            style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/portfolio/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
+                        >
+                            <span style="display: block; margin-bottom: 0.25rem;">05</span>
+                            <span>Portfolio</span>
+                        </a>
+                    </li>
+                    <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
+                        <a 
                             href="/jobclub/about/" 
                             class="block font-bold uppercase tracking-wider"
                             style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if page.url == '/jobclub/about/' %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
                         >
-                            <span style="display: block; margin-bottom: 0.25rem;">05</span>
+                            <span style="display: block; margin-bottom: 0.25rem;">06</span>
                             <span>About</span>
                         </a>
                     </li>
@@ -319,7 +351,7 @@
                 <div class="md:col-span-5">
                     <!-- Official Job Club Logo - Footer Version -->
                     <div style="line-height: 1; margin-bottom: var(--space-xl);">
-                        <img src="{{ '/images/job-club-logo.svg' | baseUrl }}" alt="Job Club" style="height: 60px; width: auto; display: block;" loading="lazy">
+                        <img src="{{ '/images/job-club-logo.svg' | baseUrl }}" alt="Job Club" style="height: 80px; width: auto; display: block;" loading="lazy">
                     </div>
                     <p class="leading-relaxed" style="color: var(--swiss-gray-600); max-width: 400px;">
                         {{ site.description }}
@@ -338,7 +370,9 @@
                                 <li><a href="/jobclub/onboarding/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Onboarding</a></li>
                                 <li><a href="/jobclub/events/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Events</a></li>
                                 <li><a href="/jobclub/resources/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Resources</a></li>
+                                <li><a href="/portfolio/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Portfolio</a></li>
                                 <li><a href="/jobclub/about/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">About</a></li>
+                                <li><a href="/privacy/" class="font-medium hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Privacy</a></li>
                             </ul>
                         </dd>
                     </dl>
@@ -403,14 +437,17 @@
                 </div>
                 <div class="md:text-right">
                     <p class="text-xs" style="color: var(--swiss-gray-500);">
+                        <a href="/privacy/" class="hover:underline" style="color: var(--swiss-gray-600); transition: color 0.2s; margin-right: var(--space-md);">Privacy Policy</a>
                         Built with 
                         <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline" style="color: var(--swiss-black); transition: color 0.2s;">Eleventy</a>
-                        / Swiss design system (no Tailwind)
                     </p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- GDPR Cookie Consent Banner - Loads before analytics -->
+    <script src="{{ '/js/cookie-consent.js' | baseUrl }}"></script>
 
     <!-- Swiss Mobile Menu - Vanilla JavaScript (CSP-safe) -->
     <script src="{{ '/js/mobile-menu.bundle.js' | baseUrl }}"></script>

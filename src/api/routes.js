@@ -12,6 +12,7 @@
 import SanityClient from '@sanity/client';
 import NotionDBIntegration from '../lib/notionIntegration.js';
 import DiscordIntegration from '../lib/discordIntegration.js';
+import ChecklistGenerator from '../lib/checklistGenerator.js';
 
 const sanity = new SanityClient({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -26,6 +27,7 @@ const discord = new DiscordIntegration();
 /**
  * POST /api/onboarding
  * Receives onboarding form submission and creates member profile
+ * Triggers personalized checklist and automation workflows
  */
 export async function handleOnboarding(req, res) {
   if (req.method !== 'POST') {
@@ -65,10 +67,35 @@ export async function handleOnboarding(req, res) {
     await discord.sendWelcomeMessage(memberProfile);
     await discord.postIntroduction(memberProfile);
 
+    // Generate personalized checklist
+    const analysis = ChecklistGenerator.analyzeMemberProfile(memberProfile);
+
+    // Trigger Zapier webhook for personalized email automation
+    const zapierWebhookUrl = process.env.ZAPIER_ONBOARDING_WEBHOOK;
+    if (zapierWebhookUrl) {
+      // Fire and forget - don't block response on webhook
+      triggerZapierAutomation(zapierWebhookUrl, {
+        memberId: memberProfile._id,
+        name: memberProfile.name,
+        email: memberProfile.email,
+        careerGoal: memberProfile.careerGoal,
+        missingAssets: analysis.missingAssets,
+        completionEstimate: analysis.completionEstimate,
+        majorSpecificTasks: analysis.checklist,
+      }).catch((error) => {
+        console.error('Zapier webhook error (non-blocking):', error);
+        // Don't fail the response - the member was created successfully
+      });
+    }
+
     return res.status(201).json({
       success: true,
       message: 'Welcome to Job Club! Check your email for next steps.',
       memberId: memberProfile._id,
+      personalizationData: {
+        missingAssetsCount: analysis.missingAssets.length,
+        completionEstimate: analysis.completionEstimate,
+      },
     });
   } catch (error) {
     console.error('Onboarding error:', error);
@@ -214,6 +241,37 @@ function validateOnboardingForm(data) {
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}
+
+/**
+ * Trigger Zapier webhook for personalized automation
+ * This sends the member data and personalized checklist to Zapier
+ * for email automation, Discord integration, and other workflows
+ */
+async function triggerZapierAutomation(webhookUrl, data) {
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        ...data,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Zapier webhook failed: ${response.status} ${errorText}`);
+    }
+
+    console.log('Zapier automation triggered successfully');
+    return await response.json();
+  } catch (error) {
+    console.error('Error triggering Zapier automation:', error);
+    throw error;
+  }
 }
 
 export default {

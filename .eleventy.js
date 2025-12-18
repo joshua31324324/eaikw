@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
   // Tailwind builds CSS into _site/css
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/fonts");
+  eleventyConfig.addPassthroughCopy("src/js");
 
   // ===============================
   // FILTERS
