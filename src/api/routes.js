@@ -9,10 +9,19 @@
  * - Lambda functions
  */
 
+<<<<<<< HEAD
 import SanityClient from "@sanity/client";
 import NotionDBIntegration from "../lib/notionIntegration.js";
 import DiscordIntegration from "../lib/discordIntegration.js";
 import ChecklistGenerator from "../lib/checklistGenerator.js";
+=======
+import SanityClient from '@sanity/client';
+import NotionDBIntegration from '../lib/notionIntegration.js';
+import DiscordIntegration from '../lib/discordIntegration.js';
+import DiscordIntegrationHelper from '../lib/discordHelper.js';
+import ChecklistGenerator from '../lib/checklistGenerator.js';
+import ZapierIntegration from '../lib/zapierIntegration.js';
+>>>>>>> 6910fe0364c7f57b863cde999ab63e4e8bb8ff37
 
 const sanity = new SanityClient({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -23,6 +32,8 @@ const sanity = new SanityClient({
 
 const notion = new NotionDBIntegration();
 const discord = new DiscordIntegration();
+const discordHelper = new DiscordIntegrationHelper();
+const zapier = new ZapierIntegration();
 
 /**
  * POST /api/onboarding
@@ -73,6 +84,7 @@ export async function handleOnboarding(req, res) {
     // Generate personalized checklist
     const analysis = ChecklistGenerator.analyzeMemberProfile(memberProfile);
 
+<<<<<<< HEAD
     // Trigger Zapier webhook for personalized email automation
     const zapierWebhookUrl = process.env.ZAPIER_ONBOARDING_WEBHOOK;
     if (zapierWebhookUrl) {
@@ -89,7 +101,18 @@ export async function handleOnboarding(req, res) {
         console.error("Zapier webhook error (non-blocking):", error);
         // Don't fail the response - the member was created successfully
       });
+=======
+    // Post to Discord intro channel with enhanced embed
+    await discordHelper.postIntroduction(memberProfile);
+
+    // Optionally assign @Member role
+    if (memberData.discordUserId) {
+      await discordHelper.assignMemberRole(memberData.discordUserId);
+>>>>>>> 6910fe0364c7f57b863cde999ab63e4e8bb8ff37
     }
+
+    // Trigger Zapier webhook for personalized email automation
+    await zapier.triggerOnboarding(memberProfile, analysis);
 
     return res.status(201).json({
       success: true,
@@ -268,6 +291,7 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
+<<<<<<< HEAD
 /**
  * Trigger Zapier webhook for personalized automation
  * This sends the member data and personalized checklist to Zapier
@@ -299,6 +323,8 @@ async function triggerZapierAutomation(webhookUrl, data) {
   }
 }
 
+=======
+>>>>>>> 6910fe0364c7f57b863cde999ab63e4e8bb8ff37
 export default {
   handleOnboarding,
   handleGetEvents,
